@@ -36,4 +36,4 @@ def updateData(request, id):
         return redirect("/")
     d = Student.objects.get(id=id)
     context = {"d" : d}
-    return render(request, "index.html", context)
+    return render(request, "edit.html", context)

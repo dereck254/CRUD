@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<body>
+<body style="background-color: green">
 <h1>Registration</h1>
-<form action="/insert" method="post">
+<form action="/insert" method="post" >
     {% csrf_token %}
     <input type="text" placeholder="Name" name="name">
     <input type="email" placeholder="Email" name="email">
     <input type="number" placeholder="Phone Number" name="phonenum">
 
-    <button>Submit</button>
+    <button style="background: yellow">Submit</button>
 </form>
     <table>
         <thead>
@@ -21,8 +21,8 @@
             <th>FIRST NAME</th>
             <th>EMAIL</th>
             <th>PHONE NO.</th>
-            <th>EDIT</th>
-            <th>DELETE</th>
+            <th>ACTION</th>
+
         </tr>
 
 {% for d in data %}
@@ -31,8 +31,13 @@
             <th>{{ d.name }}</th>
             <th>{{ d.email }}</th>
             <th>{{ d.phonenum }}</th>
-            <td><a href="/update/{{d.id}}" type="button" class="btn btn-outline-warning">Edit</a></td>
-            <td><a href="/delete/{{d.id}}" type="button" class="btn btn-outline-danger">Delete</a></td>
+            <th>
+                <a href="/update/{{ d.id }}">Update</a>
+                <a href="/delete/{{ d.id }}">Delete</a>
+            </th>
+
+
+
 
         </tr>
 {% endfor %}
